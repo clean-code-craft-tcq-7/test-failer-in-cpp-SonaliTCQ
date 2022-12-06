@@ -1,21 +1,42 @@
 #include <iostream>
 #include <assert.h>
+#include "printminorcolors.cpp"
+#include "test_misaligned.hpp"
 
-int printColorMap() {
-    const char* majorColor[] = {"White", "Red", "Black", "Yellow", "Violet"};
-    const char* minorColor[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
-    int i = 0, j = 0;
-    for(i = 0; i < 5; i++) {
-        for(j = 0; j < 5; j++) {
-            std::cout << i * 5 + j << " | " << majorColor[i] << " | " << minorColor[i] << "\n";
-        }
+void printColorMap() {
+   int i, first, second, third, fourth, fifth =0, n= 5;
+    
+   for(i = 0; i < n; i++) {
+    if(i==0){
+        for(first = 0; first < n; first++) {
+            printfirstmajorcolor(i, first, n);}
     }
-    return i * j;
+    if(i==1){
+      
+        for(second = 0; second < n; second++) {
+            printsecondmajorcolor(i, second, n);}
+    }
+    if(i==2){
+        
+        for(third = 0; third < n; third++) {
+            printthirdmajorcolor(i, third, n);}
+    }
+    if(i==3){
+        
+        for(fourth = 0; fourth < n; fourth++) {
+            printfourthmajorcolor(i, fourth, n);}
+    }
+    if(i==4){
+        for(fifth =0; fifth < n; fifth++) {
+            printfifthmajorcolor(i, fifth, n);}
+    }
+    }
 }
 
 int main() {
-    int result = printColorMap();
-    assert(result == 25);
-    std::cout << "All is well (maybe!)\n";
+   
+    printColorMap();
+    test_minor_color();
+   
     return 0;
 }
